@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Para evitar la barra de desplazamiento horizontal */
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            animation: changeBackground 50s infinite; /* Animación para cambiar el fondo */
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para el menú */
+            z-index: 1000; /* Asegura que el menú esté sobre el contenido */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-evenly; /* Espacia los elementos del header */
+            align-items: center;
+            color: white; /* Color del texto */
+        }
+        #logo {
+            max-height: 120px; /* Ajusta el tamaño máximo de tu logo */
+        }
+        #menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: left; /* Centra los elementos del menú horizontalmente */
+            align-items: center; /* Centra los elementos del menú verticalmente */
+        }
+        #menu li {
+            margin-right: 20px;
+        }
+        #menu li:last-child {
+            margin-right: 0; /* Elimina el margen derecho del último elemento */
+        }
+        #menu li a {
+            color: white; /* Color del texto del enlace */
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+        }
+        .content {
+            margin-top: 90px; /* Espacio para el menú */
+            padding-top: 20px; /* Espacio para el menú */
+        }
+
+        @keyframes changeBackground {
+            20% { background-image: url('imagen1.jpg'); }
+            40% { background-image: url('imagen2.jpg'); }
+            60% { background-image: url('imagen3.jpg'); }
+            80% { background-image: url('imagen4.jpg'); }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img id="logo" src="logo.png" alt="Logo">
+        <ul id="menu">
+            <li><a href="#container1">Inicio</a></li>
+            <li><a href="#container2">Acerca</a></li>
+            <li><a href="#container3">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container" id="container1">
+            
+        </div>
+        <div class="container" id="container2">
+            <h1>Contenedor 2</h1>
+        </div>
+        <div class="container" id="container3">
+            <h1>Contenedor 3</h1>
+        </div>
+    </div>
+
+    <script>
+        // Cambia la posición del menú cuando se desplaza la página
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('header');
+            if (window.scrollY > 0) {
+                header.style.top = '0';
+            } else {
+                header.style.top = null;
+            }
+        });
+    </script>
+</body>
+</html>
